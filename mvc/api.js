@@ -11,10 +11,10 @@ export const Api = (() => {
         fetch([baseUrl, path, id].join("/")).then((response) =>
             response.json()
         );
-    const editTodo = (editted) => 
-        fetch([baseUrl, path].join("/"), {
+    const editTodo = (body) => 
+        fetch([baseUrl, path, body.id].join("/"), {
             method: "PUT",
-            body: JSON.stringify(editted),
+            body: JSON.stringify(body),
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
             },
@@ -40,6 +40,7 @@ export const Api = (() => {
         getTodos,
         getTodo,
         deleteTodo,
-        addTodo
+        addTodo,
+        editTodo
     };
 })();

@@ -12,7 +12,13 @@ export const Model = ((api, view) => {
 
     class State {
         #todolist = [];
-
+        #toggleInput = false;
+        get toggleInput() {
+            return this.#toggleInput
+        } 
+        set toggleInput(isOn){
+            this.#toggleInput = !this.#toggleInput;
+        }
         get todolist() {
             return this.#todolist;
         }
@@ -33,11 +39,13 @@ export const Model = ((api, view) => {
     const getTodos = api.getTodos;
     const deleteTodo = api.deleteTodo;
     const addTodo = api.addTodo;
+    const editTodo = api.editTodo;
 
     return {
         getTodos,
         deleteTodo,
         addTodo,
+        editTodo,
         State,
         Todo,
     };

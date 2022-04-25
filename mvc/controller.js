@@ -25,7 +25,7 @@ export const Controller = ((model, view) => {
         for(let i=0; i < todolistEle.length; i++){
             todolistEle[i].addEventListener("click", (event) => {
                 const [className, id] = event.target.className.split(" ");
-                state.todolist = state.todolist.filter((todo) => +todo.id !== +id);
+                // state.todolist = state.todolist.filter((todo) => +todo.id !== +id);
                 model.deleteTodo(id);
             });
         }
@@ -36,13 +36,18 @@ export const Controller = ((model, view) => {
         for(let i=0; i < todolistEle.length; i++){
             
             todolistEle[i].addEventListener("click", (event) => {
-                const [className, id] = event.target.className.split(" ");
-                // state.todolist = state.todolist.filter((todo) => +todo.id !== +id);
-                // model.deleteTodo(id);
+                const foundTodo = state.todolist.filter((todo) => +todo.id === +id);
+                
+                // const [className, id] = event.target.className.split(" ");
+                
+                // const foundTodo = state.todolist.filter((todo) => +todo.id === +id);
+                // foundTodo.content = "HELLO GETU";
+                // const body = {content: "HELLO GETU", isCompleted: false}
+                // model.editTodo({id: +id, ...body});
             });
         }
         
-    };
+    }; 
 
     const init = () => {
         model.getTodos()
