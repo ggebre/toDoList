@@ -1,13 +1,9 @@
 :root {
-    --height-header: 60px;
-    --height-todolist: 300px;
-    --height-todolist-header: 30px;
-
-    --width-todolist: 400px;
-
+    
+    --color-background: rgb(223, 220, 203);
     --color-green: rgb(30, 255, 0);
-    --color-red-button: rgb(148, 21, 21);
-    --color-red-li-hover: rgb(27, 172, 8);
+    --color-delete-button: #c94c4c;
+    --color-blue-button: #008cba;
 }
 
 html,
@@ -30,6 +26,18 @@ body {
     justify-content: center;
 
 }
+#input-container > button {
+    margin-left: 20px;
+    background-color: var(--color-blue-button);
+    color: #f0f0f0;
+    font-size: 1.4rem;
+    padding: 0.4rem;
+}
+
+#input-container > input {
+    width: 350px;
+    padding: 0 10px;
+}
 
 .content {
     background-color: blanchedalmond;
@@ -51,14 +59,18 @@ body {
 }
 .todolist > p {
     margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 800;
 }
 .todo_container {
-    background-color: rgb(223, 220, 203);
+    background-color: var(--color-background);
     margin-bottom: 15px;
     display: flex;
+    align-items: center;
 }
 .todo_container > div {
     width: 80%;
+    text-align: center;
 }
 .todo_container  > div > input {
     width: 95%;
@@ -72,24 +84,20 @@ body {
 }
 svg {
     fill: #f0f0f0;
+    
 }
 .editbtn > svg {
-    background-color: #008cba;
+    background-color: var(--color-blue-button);
 }
 .dlebtn > svg {
-    background-color: #c94c4c;
+    background-color: var(--color-delete-button);
 }
 .completedbtn > svg {
     background-color: #4caf50;
 }
 
 button {
-    margin-right: 10px;
-    background-color: rgba(0, 0, 0, 0);
+    margin-right: 3px;
     border: none;
-    color: brown;
-    font-size: 1.4rem;
 }
-button:hover {
-    font-size: 1.6rem;
-}
+
