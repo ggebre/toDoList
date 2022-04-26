@@ -67,7 +67,6 @@ export const Controller = ((model, view) => {
                 const [elem] = foundTodo;
                 elem.editable = !elem.editable;
                 elem.content = event.target.value; 
-                // state.todolist = [...state.todolist];
                 model.editTodo(elem);
             }
         });

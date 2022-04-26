@@ -37,6 +37,12 @@ body {
     text-transform: capitalize;
     letter-spacing: 2px;
 }
+#input-container {
+    display: flex;
+    justify-content: center;
+
+}
+
 
 .content {
     background-color: blanchedalmond;
@@ -62,52 +68,13 @@ body {
     transform: translate(-50%, -50%); */
 }
 
-.todolist__header,
-.todolist__input,
-ul li {
-    height: var(--height-todolist-header);
-    line-height: var(--height-todolist-header);
-    width: 100%;
-
-    padding-left: 10px;
-
-    border: none;
-    outline: none;
-
-    font-size: 1rem;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-
-    list-style: none;
-}
-.todolist__header {
-    font-size: 1.5rem;
-    text-align: center;
-}
-ul li {
-    display: flex;
-    justify-content: space-between;
-}
-ul li span {
-    overflow: hidden;
-}
-ul li button {
+button {
     margin-right: 10px;
     background-color: rgba(0, 0, 0, 0);
     border: none;
     color: brown;
     font-size: 1.4rem;
 }
-ul li button:hover {
+button:hover {
     font-size: 1.6rem;
-}
-ul li button:active {
-    font-size: 1.3rem;
-}
-ul li:hover {
-    background-color: var(--color-red-li-hover);
-}
-ul {
-    height: calc(100% - var(--height-todolist-header) * 2);
-    overflow: auto;
 }
