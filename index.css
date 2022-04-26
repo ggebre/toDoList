@@ -67,7 +67,20 @@ body {
     padding-left: 10px;
 }
 .todo_container > button {
+    background-color: #e6e2d3;
     width: 5%;
+}
+svg {
+    fill: #f0f0f0;
+}
+.editbtn > svg {
+    background-color: #008cba;
+}
+.dlebtn > svg {
+    background-color: #c94c4c;
+}
+.completedbtn > svg {
+    background-color: #4caf50;
 }
 
 button {

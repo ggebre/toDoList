@@ -2,33 +2,33 @@
   "todos": [
     {
       "content": "Get something from jewel-Osco",
-      "isCompleted": true,
+      "isCompleted": false,
       "editable": false,
       "id": 1
     },
     {
       "content": "Hello Getu Gebre G",
-      "isCompleted": false,
+      "isCompleted": true,
       "editable": false,
       "id": 2
     },
     {
-      "content": "Some",
+      "content": "Some things need to give",
       "isCompleted": false,
       "editable": false,
       "id": 3
-    },
-    {
-      "content": "getu",
-      "isCompleted": false,
-      "editable": false,
-      "id": 4
     },
     {
       "content": "getu gebre",
       "isCompleted": false,
       "editable": false,
       "id": 5
+    },
+    {
+      "content": "something again",
+      "isCompleted": false,
+      "editable": false,
+      "id": 6
     }
   ]
 }

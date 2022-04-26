@@ -23,8 +23,8 @@ export const Controller = ((model, view) => {
     const deleteTodo = () => {
         const todolistEle = document.querySelectorAll(view.domstr.deletebutton);
         for(let i=0; i < todolistEle.length; i++){
-            todolistEle[i].addEventListener("click", (event) => {
-                const [className, id] = event.target.className.split(" ");
+            todolistEle[i].addEventListener("click", () => {
+                const [className, id] = todolistEle[i].className.split(" ");
                 model.deleteTodo(id);
             });
         }
@@ -34,8 +34,9 @@ export const Controller = ((model, view) => {
         const todolistEle = document.querySelectorAll(view.domstr.completebutton);
         
         for(let i=0; i < todolistEle.length; i++){
-            todolistEle[i].addEventListener("click", (event) => {
-                const [className, id] = event.target.className.split(" ");
+            todolistEle[i].addEventListener("click", () => {
+                
+                const [className, id] = todolistEle[i].className.split(" ");
                 
                 const foundTodo = state.todolist.filter((todo) => +todo.id === +id);
                 const [elem] = foundTodo;
@@ -48,8 +49,8 @@ export const Controller = ((model, view) => {
         const todolistEle = document.querySelectorAll(view.domstr.editbutton);
         for(let i=0; i < todolistEle.length; i++){
         
-            todolistEle[i].addEventListener("click", (event) => {
-                const [className, id] = event.target.className.split(" ");
+            todolistEle[i].addEventListener("click", () => {
+                const [className, id] = todolistEle[i].className.split(" ");
                 const foundTodo = state.todolist.filter((todo) => +todo.id === +id);
                 const [elem] = foundTodo;
                 elem.editable = !elem.editable;
