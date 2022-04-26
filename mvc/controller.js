@@ -7,16 +7,16 @@ export const Controller = ((model, view) => {
 
     const addTodo = () => {
         const inputbox = document.querySelector(view.domstr.inputbox);
-        inputbox.addEventListener("keyup", (event) => {
-            if (event.key === "Enter") {
-                
-                const newtodo = new model.Todo(event.target.value);
+        const submitbtn = document.querySelector(view.domstr.submitbtn);
+        
+        submitbtn.addEventListener("click", () => {
+            console.log(inputbox.value)
+            const newtodo = new model.Todo(inputbox.value);
 
                 model.addTodo(newtodo).then(todo => {
                     state.todolist = [todo, ...state.todolist];
                 });
-                event.target.value = "";
-            }
+                inputbox.value = "";
         });
     };
 

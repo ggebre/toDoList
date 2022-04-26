@@ -24,48 +24,50 @@ body {
     font-family: "Dancing Script", cursive;
 }
 
-.header {
-    height: var(--height-header);
-    width: 100%;
-
-    background: linear-gradient(to right, black, var(--color-green));
-    line-height: var(--height-header);
-    color: white;
-    padding-left: 10px;
-
-    font-size: 2rem;
-    text-transform: capitalize;
-    letter-spacing: 2px;
-}
 #input-container {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 
 }
-
 
 .content {
     background-color: blanchedalmond;
 
-    height: calc(100% - var(--height-header));
+    margin: 20px;
+    height: 100%;
     width: 100%;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;  
 }
 
 .todolist {
-    background-color: var(--color-green);
-    height: var(--height-todolist);
-    width: var(--width-todolist);
-
-    box-shadow: 5px 5px 2px black;
-    border-radius: 5px;
-    /* position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
+    background-color: #e6e2d3;
+    height: 90%;
+    padding: 0 40px;
+    width: 100%;
+    
+}
+.todolist > p {
+    margin-bottom: 20px;
+}
+.todo_container {
+    background-color: rgb(223, 220, 203);
+    margin-bottom: 15px;
+    display: flex;
+}
+.todo_container > div {
+    width: 80%;
+}
+.todo_container  > div > input {
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    padding-left: 10px;
+}
+.todo_container > button {
+    width: 5%;
 }
 
 button {
