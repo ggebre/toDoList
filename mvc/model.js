@@ -4,9 +4,10 @@ import { View } from './view.js'
 // ~~~~~~~~~~~~ Model ~~~~~~~~~~~~
 export const Model = ((api, view) => {
     class Todo {
-        constructor(title) {
+        constructor(content) {
             this.content = content;
             this.isCompleted = false;
+            this.editable = false;
         }
     }
 

@@ -16,14 +16,15 @@ export const View = (() => {
     const createTmp = (arr) => {
         let tmp = "";
         arr.forEach((todo) => {
+            
             tmp += `
                 <div class="todo_container">
-
-                    <button ${!todo.isCompleted ? 'hidden' : 'visible'} class="uncompletebtn ${todo.id}">uncompleted</button>
-                    ${true ?
+                    <button ${!todo.isCompleted ? 'hidden' : 'visible'} class="completedbtn ${todo.id}">uncompleted</button>
+                    ${ !todo.editable 
+                        ?
                         `<span>${todo.content}</span>`
                         : 
-                        `<input type="text" placeholder=${todo.content}/>`
+                        `<input id="edit-${todo.id}" type="text" value=${todo.content} />`
                     }
                     <button class="editbtn ${todo.id}">Edit</button>
                     <button class="dlebtn ${todo.id}">delete</button>
@@ -33,6 +34,7 @@ export const View = (() => {
         });
         return tmp;
     };
+    
     return {
         domstr,
         render,

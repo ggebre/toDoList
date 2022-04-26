@@ -25,29 +25,53 @@ export const Controller = ((model, view) => {
         for(let i=0; i < todolistEle.length; i++){
             todolistEle[i].addEventListener("click", (event) => {
                 const [className, id] = event.target.className.split(" ");
-                // state.todolist = state.todolist.filter((todo) => +todo.id !== +id);
                 model.deleteTodo(id);
             });
         }
         
     }; 
+    const toggleCompletion = () => {
+        const todolistEle = document.querySelectorAll(view.domstr.completebutton);
+        
+        for(let i=0; i < todolistEle.length; i++){
+            todolistEle[i].addEventListener("click", (event) => {
+                const [className, id] = event.target.className.split(" ");
+                
+                const foundTodo = state.todolist.filter((todo) => +todo.id === +id);
+                const [elem] = foundTodo;
+                elem.isCompleted = !elem.isCompleted;
+                model.editTodo(elem);
+            });
+        }
+    }
     const editTodo = () => {
         const todolistEle = document.querySelectorAll(view.domstr.editbutton);
         for(let i=0; i < todolistEle.length; i++){
-            
-            todolistEle[i].addEventListener("click", (event) => {
-                const foundTodo = state.todolist.filter((todo) => +todo.id === +id);
-                
-                // const [className, id] = event.target.className.split(" ");
-                
-                // const foundTodo = state.todolist.filter((todo) => +todo.id === +id);
-                // foundTodo.content = "HELLO GETU";
-                // const body = {content: "HELLO GETU", isCompleted: false}
-                // model.editTodo({id: +id, ...body});
-            });
-        }
         
+            todolistEle[i].addEventListener("click", (event) => {
+                const [className, id] = event.target.className.split(" ");
+                const foundTodo = state.todolist.filter((todo) => +todo.id === +id);
+                const [elem] = foundTodo;
+                elem.editable = !elem.editable;
+                state.todolist = [...state.todolist];
+                editInputToDo(id)
+            });
+        } 
     }; 
+    const editInputToDo = (id) => {
+        
+        const inputbox = document.querySelector(`#edit-${id}`);
+        inputbox.addEventListener("keyup", (event) => {
+            if (event.key === "Enter") {
+                const foundTodo = state.todolist.filter((todo) => +todo.id === +id);
+                const [elem] = foundTodo;
+                elem.editable = !elem.editable;
+                elem.content = event.target.value; 
+                // state.todolist = [...state.todolist];
+                model.editTodo(elem);
+            }
+        });
+    }
 
     const init = () => {
         model.getTodos()
@@ -56,6 +80,7 @@ export const Controller = ((model, view) => {
             .then(() => {
                 deleteTodo();
                 editTodo();
+                toggleCompletion();
             });
     };
 
